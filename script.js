@@ -73,12 +73,20 @@ async function searchImages(query) {
     }
 }
 
+function prefetchNextImage() {
+    const nextIndex = (currentImageIndex + 1) % images.length;
+    const prefetchImage = new Image();
+    prefetchImage.src = images[nextIndex].src.original;
+}
+
 function displayImage() {
     if (images[currentImageIndex]) {
         image.src = images[currentImageIndex].src.original; // Use high-resolution image
         image.classList.remove("hidden");
+        prefetchNextImage(); // Prefetch the next image after displaying the current image
     }
 }
+
 
 function startTimer() {
     clearInterval(timer);
