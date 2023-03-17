@@ -1,6 +1,5 @@
 const apiKey = 'A95gTKtuahRPkZ0H1K4REZ6i9BTByVtc2QoAa9b5LvF1Dfc9yOIEVxjV';
 
-
 const searchInput = document.getElementById('search');
 const timerSelect = document.getElementById('timer-select');
 const previousButton = document.getElementById('previous');
@@ -74,10 +73,9 @@ async function searchImages(query) {
     }
 }
 
-
 function displayImage() {
     if (images[currentImageIndex]) {
-        image.src = images[currentImageIndex].src.large;
+        image.src = images[currentImageIndex].src.original; // Use high-resolution image
         image.classList.remove("hidden");
     }
 }
