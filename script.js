@@ -110,10 +110,22 @@ function nextImage() {
     currentImageIndex = (currentImageIndex + 1) % images.length;
     displayImage();
     startTimer(); // Restart the timer
+
+    // If the timer is paused, unpause it when the next button is pressed
+    if (paused) {
+        paused = false;
+        pauseButton.textContent = 'Pause';
+    }
 }
 
 function previousImage() {
     currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
     displayImage();
     startTimer(); // Restart the timer
+
+    // If the timer is paused, unpause it when the previous button is pressed
+    if (paused) {
+        paused = false;
+        pauseButton.textContent = 'Pause';
+    }
 }
