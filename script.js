@@ -47,21 +47,29 @@ async function searchImages(query) {
     try {
         images = [];
 
-        // Fetch images from multiple pages (up to 3 pages)
-        for (let page = 1; page <= 3; page++) {
-            const response = await fetch(`https://api.pexels.com/v1/search?query=${query}&orientation=vertical&per_page=80&page=${page}`, {
-                headers: {
-                    Authorization: apiKey
-                }
-            });
-            const data = await response.json();
-            const verticalImages = data.photos.filter(photo => photo.width < photo.height); // Filter out non-vertical images
-            images.push(...verticalImages);
+        // Fetch images from 3 random pages
+        const totalPages = 125;
+        const fetchedPages = new Set();
+        while (fetchedPages.size < 3) {
+            const randomPage = Math.floor(Math.random() * totalPages) + 1;
+            if (!fetchedPages.has(randomPage)) {
+                fetchedPages.add(randomPage);
+
+                const response = await fetch(`https://api.pexels.com/v1/search?query=${query}&orientation=vertical&per_page=80&page=${randomPage}`, {
+                    headers: {
+                        Authorization: apiKey
+                    }
+                });
+                const data = await response.json();
+                const verticalImages = data.photos.filter(photo => photo.width < photo.height); // Filter out non-vertical images
+                images.push(...verticalImages);
+            }
         }
 
         shuffle(images); // Shuffle the images array
         currentImageIndex = 0;
         displayImage();
+        prefetchNextImage(); // Prefetch the next image after fetching the images
         startTimer();
 
         // Set the image count text
