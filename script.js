@@ -91,7 +91,7 @@ async function searchImages(query) {
 
 function displayImage() {
   if (images[currentImageIndex]) {
-    image.src = images[currentImageIndex].src.original; // Use high-resolution image
+    image.src = images[currentImageIndex].src.large; // Use high-resolution image
     image.classList.remove("hidden");
   }
 }
