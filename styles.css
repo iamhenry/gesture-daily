@@ -137,3 +137,12 @@ img {
     filter: drop-shadow(0px 0px 20px #0F0F0F);
     border-radius: 20px;
 }
+
+@media (max-width: 768px) {
+    #controls {
+        flex-direction: column;
+    }
+    .button-controls {
+        margin-top: 1rem;
+    }
+}
