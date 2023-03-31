@@ -147,6 +147,8 @@ img {
         margin-top: 1rem;
         width: 100%;
         justify-content: space-between;
+    }
+    button {
         margin-left: 0;
     }
     
