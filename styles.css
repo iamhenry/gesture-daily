@@ -34,6 +34,7 @@ html {
     flex-grow: 1;
     display: flex;
     margin-right: 8px;
+    width: 100%;
 }
 
 .timer-select-container {
@@ -136,4 +137,16 @@ img {
     border: 1px solid rgba(255, 255, 255, 0.1);
     filter: drop-shadow(0px 0px 20px #0F0F0F);
     border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    #controls {
+        flex-direction: column;
+    }
+    .button-controls {
+        margin-top: 1rem;
+        width: 100%;
+    justify-content: space-between;
+    }
+    
 }
