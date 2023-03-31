@@ -34,6 +34,7 @@ html {
     flex-grow: 1;
     display: flex;
     margin-right: 8px;
+    width: 100%;
 }
 
 .timer-select-container {
@@ -144,5 +145,8 @@ img {
     }
     .button-controls {
         margin-top: 1rem;
+        width: 100%;
+    justify-content: space-between;
     }
+    
 }
